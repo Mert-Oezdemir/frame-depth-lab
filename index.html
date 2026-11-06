@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A dependency-free 3D scene editor for an invented orbital probe.">
+  <title>Frame Depth Lab | Orbital scene editor</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header><strong>Frame Depth Lab</strong><span>Orbital scene editor</span></header>
+    <h1>Direct a flyby.</h1>
+    <p class="intro">Scrub the probe's orbit, move the camera and save a frame from your scene.</p>
+    <section class="editor" aria-label="Orbital scene editor">
+      <div class="viewport">
+        <canvas id="scene" width="900" height="630" role="img" aria-label="A modeled space probe passing over a planet on a curved orbit"></canvas>
+        <div class="timeline">
+          <button type="button" id="play" aria-pressed="false">Play</button>
+          <div><label for="orbit">Orbit position <output id="orbit-value" for="orbit"></output></label><input id="orbit" type="range" min="0" max="360" value="48" aria-describedby="position-help"></div>
+        </div>
+        <p class="sr-only" id="position-help">Controls the position of the probe along the orbital path.</p>
+      </div>
+      <div class="settings">
+        <h2>Camera</h2>
+        <p>Yaw turns the camera around the path. Pitch tilts it above or below the plane.</p>
+        <div class="field"><label for="yaw">Yaw</label><output id="yaw-value" for="yaw"></output><input id="yaw" type="range" min="-180" max="180" value="-18"></div>
+        <div class="field"><label for="pitch">Pitch</label><output id="pitch-value" for="pitch"></output><input id="pitch" type="range" min="-50" max="50" value="17"></div>
+        <label class="mode" for="wire"><input id="wire" type="checkbox"> Show wireframe</label>
+        <div class="commands"><button type="button" id="save">Save PNG</button><button type="button" id="reset">Reset scene</button></div>
+      </div>
+    </section>
+    <p class="footer">Original geometry. Drawn in your browser.</p>
+  </main>
+</body>
+</html>
